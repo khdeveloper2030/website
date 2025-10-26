@@ -72,7 +72,7 @@ body {
   border-radius: 10px; /* More rounded corners */
   border: 1px solid #226e3f; /* Very light border */
   background-color: #f9fafb;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -87,6 +87,9 @@ body {
   justify-content: space-between;
   gap: 10px;
 
+}
+.two-column-container > div {
+    flex: 1; /* Makes each column take 50% width */
 }
 
 .forgot {
