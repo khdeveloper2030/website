@@ -85,16 +85,10 @@ body {
 .two-column-container {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
+
 }
 
-.two-column-container > div {
-  flex: 1;/* Make each column take an equal 50% width */
-}
-
-.two-column-container input {
-  width: 100%;
-}
 .forgot {
   text-align: right;
   margin-bottom: 1.75rem;
