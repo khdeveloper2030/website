@@ -6,7 +6,7 @@
 }
 
 /* New Gradient Background */
-body {
+.login {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +113,7 @@ body {
   color: #00a0b2;
 }
 
-.btn {
+.btn-login {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,13 +136,13 @@ body {
   transition: all 0.25s ease;
 }
 
-.btn:hover {
+.btn-login:hover {
   background: linear-gradient(90deg, #287e06, #0e2148);
   transform: translateY(-2px); /* More noticeable lift */
   box-shadow: 0 6px 20px rgba(25, 7, 157, 0.5);
 }
 
-.btn img {
+.btn-login img {
   width: 28px; /* Slightly larger button icon */
   height: 28px;
   filter: invert(1); /* Ensure icon is visible on dark background */
