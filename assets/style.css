@@ -828,7 +828,7 @@ p {
   display: flex;
 }
 .footer{
-  display: none;
+  display: flex;
 }
   .product-container {
     display: grid;
@@ -976,7 +976,7 @@ p {
   }
   .footer {
     font-family: "Times New Roman", Times, serif;
-    display: none;
+    display: flex;
     justify-content: space-between;
     background-color: rgb(29, 29, 79);
     border-radius: 10px;
@@ -1198,7 +1198,7 @@ p {
   }
   .footer {
     font-family: "Times New Roman", Times, serif;
-    display: none;
+    display: flex;
     justify-content: space-between;
     background-color: rgb(29, 29, 79);
     border-radius: 10px;
