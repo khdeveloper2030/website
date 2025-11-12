@@ -585,7 +585,7 @@ p {
   align-items: center;
   min-height: 100vh;
   /* Radial gradient for a modern, soft background */
-   background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   padding: 1.5rem; /* Increased padding */
 }
 
@@ -750,12 +750,13 @@ p {
     display: none;
 }
 .nav-item-bottom{
-    color: white;
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .active{
@@ -828,7 +829,8 @@ p {
   display: flex;
 }
 .footer{
-  display: flex;
+     display: flex;
+     margin-bottom: 50px;
 }
   .product-container {
     display: grid;
@@ -984,6 +986,7 @@ p {
     align-items: start;
     width: 100%;
     margin: auto;
+    margin-bottom: 50px;
   }
   .footer-logo {
     display: flex;
@@ -1206,6 +1209,7 @@ p {
     align-items: start;
     width: 100%;
     margin: auto;
+    margin-bottom: 50px;
   }
   .footer-logo {
     display: flex;
