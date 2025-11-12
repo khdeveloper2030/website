@@ -736,7 +736,31 @@ p {
 .register a:hover {
   text-decoration: underline;
 }
+/* nav-bottom */
+.nav-bottom{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(37, 121, 196);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;   
+    display: none;
+}
+.nav-item-bottom{
+    color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
 
+.active{
+    color: rgb(241, 9, 40);
+}
 /* laptop */
 @media (max-width: 1200px) {
 
@@ -756,6 +780,9 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
+   .nav-bottom{
+        display: none;
+    }
 }
 /* tablet */
 @media (max-width: 992px) {
@@ -769,20 +796,40 @@ p {
     margin-right: 15px;
     font-size: 10px;
     font-family: "Times New Roman", Times, serif;
+    display: none;
   }
   .navbar {
-    padding-right: 10px;
+     background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
   }
   .nav-item {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
     padding: 8px 10px;
     font-size: 12px;
     font-family: "Times New Roman", Times, serif;
   }
   .navbar-list {
+    display: flex;
+    list-style: none;
     width: 100%;
     justify-content: space-between;
     margin-top: 10px;
+    display: none;
   }
+  .menu-icon{
+    display: flex;
+    color: white;
+}
+.nav-bottom{
+  display: flex;
+}
+.footer{
+  display: none;
+}
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -813,6 +860,7 @@ p {
     margin-right: 25px;
     font-size: 10px;
     font-family: "Times New Roman", Times, serif;
+    display: none;
   }
   .navbar {
     padding-right: 20px;
@@ -826,7 +874,15 @@ p {
     width: 100%;
     justify-content: space-between;
     margin-top: 10px;
+    display: none;
   }
+  .menu-icon{
+  display: flex;
+}
+.nav-bottom{
+  display: flex;
+}
+
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -920,7 +976,7 @@ p {
   }
   .footer {
     font-family: "Times New Roman", Times, serif;
-    display: flex;
+    display: none;
     justify-content: space-between;
     background-color: rgb(29, 29, 79);
     border-radius: 10px;
@@ -1007,6 +1063,7 @@ p {
     margin-right: 25px;
     font-size: 10px;
     font-family: "Times New Roman", Times, serif;
+    display: none;
   }
   .navbar {
     padding-right: 20px;
@@ -1020,8 +1077,14 @@ p {
     width: 100%;
     justify-content: space-between;
     margin-top: 10px;
+    display: none;
   }
-
+.menu-icon{
+  display: flex;
+}
+.nav-bottom{
+  display: flex;
+}
   .product-cover {
     padding-right: 20px;
   }
@@ -1135,7 +1198,7 @@ p {
   }
   .footer {
     font-family: "Times New Roman", Times, serif;
-    display: flex;
+    display: none;
     justify-content: space-between;
     background-color: rgb(29, 29, 79);
     border-radius: 10px;
