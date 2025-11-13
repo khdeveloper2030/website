@@ -96,7 +96,7 @@ body {
   display: inline-block;
   cursor: pointer;
 }
-.btn-register{
+.btn-register {
   padding: 10px 20px;
   margin-right: 150px;
   background-color: #27ae60;
@@ -111,7 +111,7 @@ body {
   text-decoration: none;
   color: black;
   transition: color 0.3s ease;
-  display: block; 
+  display: block;
   padding: 0;
   line-height: 1.2;
 }
@@ -917,7 +917,7 @@ p {
     font-family: "Times New Roman", Times, serif;
     display: none;
   }
-  .btn-register{
+  .btn-register {
     display: none;
   }
   .navbar {
@@ -961,32 +961,32 @@ p {
   }
 
   .product-detail {
-        grid-template-columns: 1fr;
-    }
-    .product-gallery {
-        grid-template-columns: 1fr;
-    }
-    .main-product{
-        order: 1;
-    }
-    .thumbnail{
-        order: 2;
-        display: flex;
-        gap: 4px;
-        overflow-x: auto;
-        overflow-y: visible;
-        direction: ltr;
-    }
-    .thumbnail img {
-        flex-shrink: 0; 
-        min-width: 80px; 
-        max-width: 80px; 
-        height: 100px;
-    }
-    .related-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+    grid-template-columns: 1fr;
+  }
+  .product-gallery {
+    grid-template-columns: 1fr;
+  }
+  .main-product {
+    order: 1;
+  }
+  .thumbnail {
+    order: 2;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: visible;
+    direction: ltr;
+  }
+  .thumbnail img {
+    flex-shrink: 0;
+    min-width: 80px;
+    max-width: 80px;
+    height: 100px;
+  }
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .product-info {
     flex: 1.2;
     padding: 10px 0;
@@ -1123,6 +1123,7 @@ p {
   .container {
     padding: 1.5rem 1rem;
   }
+}
 /* --- VERY SMALL SCREENS (Phones <480px) --- */
 @media (max-width: 480px) {
   .logo {
