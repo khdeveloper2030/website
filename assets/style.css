@@ -1183,22 +1183,37 @@ p {
 
   .product-detail-container {
     width: 90%;
-    max-width: 480px;
+    /* max-width: 480px;
     margin: 40px auto;
-    padding: 20px;
+    padding: 20px; */
   }
 
   .product-detail {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr;
   }
-
-  .product-detail-image {
-    flex: 1;
-    min-width: 100px;
+  .product-gallery {
+    grid-template-columns: 1fr;
   }
-
+  .main-product {
+    order: 1;
+  }
+  .thumbnail {
+    order: 2;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: visible;
+    direction: ltr;
+  }
+  .thumbnail img {
+    flex-shrink: 0;
+    min-width: 80px;
+    max-width: 80px;
+    height: 100px;
+  }
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .product-info {
     flex: 1.2;
     padding: 10px 0;
