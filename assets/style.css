@@ -1123,7 +1123,7 @@ p {
   .container {
     padding: 1.5rem 1rem;
   }
-}
+
 /* --- VERY SMALL SCREENS (Phones <480px) --- */
 @media (max-width: 480px) {
   .logo {
