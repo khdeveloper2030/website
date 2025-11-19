@@ -9,6 +9,12 @@ body {
   padding: 0;
   background-color: rgb(255, 255, 255);
   font-family: "Time New Roman", Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 80px;
+}
+.header.fixed-top {
+  z-index: 1030; /* Higher than Bootstrap's default z-index for fixed elements (1020) */
+  width: 100%;
+  background-color: white; /* Ensure the background is solid so content doesn't show through */
 }
 /* .header{
         position: fixed;
@@ -86,19 +92,27 @@ body {
 .logo:hover {
   transform: scale(1.05);
 }
-.btn {
+.carousel-inner img {
+  width: 100%;
+  height: 300px;
+}
+.btn-log {
   padding: 10px 20px;
-  margin-left: 260px;
+  /* margin-left: 260px; */
   background-color: #27ae60;
   border: none;
   border-radius: 10px;
   transition: background-color 0.3s ease, transform 0.1s ease;
   display: inline-block;
   cursor: pointer;
+  text-decoration: none !important;
+}
+.me-2 {
+  margin-right: 0.1rem !important;
 }
 .btn-register {
   padding: 10px 20px;
-  margin-right: 150px;
+  /* margin-right: 150px; */
   background-color: #27ae60;
   border: none;
   border-radius: 10px;
@@ -106,7 +120,7 @@ body {
   display: inline-block;
   cursor: pointer;
 }
-.btn a,
+.btn-log a,
 .btn-register a {
   text-decoration: none;
   color: black;
@@ -116,19 +130,21 @@ body {
   line-height: 1.2;
 }
 
-.btn:hover,
+.btn-log:hover,
 .btn-register:hover {
   background-color: #219150;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.btn:hover a,
-.btn-register:hover a {
   color: white;
 }
 
-.btn:active,
+/* .btn-log:hover a,
+.btn-register:hover a {
+  color: white;
+
+} */
+
+.btn-log:active,
 .btn-register:active {
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -206,11 +222,10 @@ marquee p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 70%;
-  margin: auto;
+  margin: 50px auto 0 auto;
   gap: 20px;
   top: 0;
   left: 0;
-  margin-top: 100px;
 }
 /* .shirt-container{
         display: grid;
@@ -445,13 +460,14 @@ p {
 
 /* detail layout */
 .product-detail-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
+  width: 100%;
+  /* max-width: 1200px; */
+  /* margin: 10px auto; */
+  /* padding: 0px; */
   background-color: #f4f4f9;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
+  margin-top: -80px;
 }
 
 .product-detail {
@@ -459,7 +475,6 @@ p {
   grid-template-columns: 60% 40%;
   gap: 40px;
   /* align-items: flex-start; */
-  margin-top: 30px;
 }
 
 .product-gallery {
@@ -467,7 +482,7 @@ p {
   grid-template-columns: 100px 1fr;
   gap: 10px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
 }
 
 .product-gallery img {
@@ -509,6 +524,7 @@ p {
   padding-left: 15px;
 }
 .related p {
+  text-align: center;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -522,7 +538,12 @@ p {
 .related-card img {
   width: 100%;
   height: 200px;
+  transition: transform 0.3s ease;
 }
+.related-card img:hover {
+  transform: scale(1.05);
+}
+
 .product-info {
   flex: 1.2;
   padding: 20px 0;
@@ -841,11 +862,19 @@ p {
 }
 /* tablet */
 @media (max-width: 992px) {
+  .carousel-inner img {
+    width: 100%;
+    height: 300px;
+  }
+  body {
+    padding-top: 50px;
+  }
   .logo {
     width: 30px;
     height: 30px;
     margin-left: 5px;
   }
+
   .btn {
     padding: 7px 7px;
     margin-right: 15px;
@@ -902,20 +931,34 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
+  .product-detail-container {
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
+    margin-top: -50px;
+  }
 }
 /* mobile */
 @media (max-width: 768px) {
+  .carousel-inner img {
+    width: 100%;
+    height: 200px;
+  }
+  body {
+    padding-top: 50px;
+  }
   .logo {
     width: 30px;
     height: 30px;
     margin-left: 10px;
   }
-  .btn {
+  .btn-log {
     padding: 7px 7px;
     margin-right: 25px;
     font-size: 10px;
     font-family: "Times New Roman", Times, serif;
-    display: none;
+    display: inline-block;
+  }
+  .navbar .btn-log {
+    display: none !important;
   }
   .btn-register {
     display: none;
@@ -940,7 +983,11 @@ p {
   .nav-bottom {
     display: flex;
   }
-
+  /* .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+  } */
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -952,14 +999,14 @@ p {
     font-size: 14px;
     padding: 4px 10px;
   }
-
-  .product-detail-container {
-    width: 95%;
-    /* max-width: 480px;
-    margin: 40px auto;
-    padding: 20px; */
+  .add-to-card {
+    font-size: 10px;
   }
 
+  /* .back {
+    margin-left: 10px;
+    cursor: pointer;
+  } */
   .product-detail {
     grid-template-columns: 1fr;
   }
@@ -1123,20 +1170,31 @@ p {
   .container {
     padding: 1.5rem 1rem;
   }
+
+  .product-detail-container {
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
+    margin-top: -50px;
+  }
 }
 /* --- VERY SMALL SCREENS (Phones <480px) --- */
 @media (max-width: 480px) {
+  .body {
+    padding-top: 40px;
+  }
   .logo {
     width: 30px;
     height: 30px;
     margin-left: 10px;
   }
-  .btn {
+  .btn-log {
     padding: 7px 7px;
     margin-right: 25px;
     font-size: 10px;
     font-family: "Times New Roman", Times, serif;
-    display: none;
+    display: inline-block;
+  }
+  .navbar .btn-log {
+    display: none !important;
   }
   .navbar {
     padding-right: 20px;
@@ -1153,7 +1211,9 @@ p {
     display: none;
   }
   .menu-icon {
+    margin-left: auto; /* pushes it to the far right */
     display: flex;
+    align-items: center;
   }
   .nav-bottom {
     display: flex;
@@ -1168,7 +1228,9 @@ p {
   p {
     font-size: 18px;
   }
-
+  .add-to-card {
+    font-size: 10px;
+  }
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1182,7 +1244,7 @@ p {
   }
 
   .product-detail-container {
-    width: 90%;
+    width: 100%;
     /* max-width: 480px;
     margin: 40px auto;
     padding: 20px; */

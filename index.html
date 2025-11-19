@@ -10,11 +10,14 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="assets/style.css">
-    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
 
   <body>
-    <div class="header">
+    <div class="header fixed-top">
       <marquee behavior="scroll" direction="right">
         <p>
           តោះៗ ប្រ៉ូម៉ូតសិន Clearances Sale
@@ -22,7 +25,7 @@
         </p>
       </marquee>
    
-      <div class="navbar">
+      <div class="navbar d-flex justify-content-between align-items-center">
         <!-- logo -->
         <div>
           <img
@@ -32,37 +35,61 @@
           />
         </div>
         <ul class="navbar-list">
-          <li><a href="index.html" class="nav-item">Home</a></li>
-          <li><a href="" class="nav-item">Product</a></li>
-          <li><a href="" class="nav-item">Contact</a></li>
-          <li><a href="" class="nav-item">About</a></li>
+          <li><a href="index.html" class="nav-item text-decoration-none">Home</a></li>
+          <li><a href="" class="nav-item text-decoration-none">Product</a></li>
+          <li><a href="" class="nav-item text-decoration-none">Contact</a></li>
+          <li><a href="" class="nav-item text-decoration-none">About</a></li>
         </ul>
         <!-- button login -->
-        <button class="btn">
-          <a href="./login-register/login.html">login</a>
+       <div class="d-flex align-items-center">
+        <button class="btn-log mr-2"> 
+            <a class="text-decoration-none" href="./login-register/login.html">login</a>
         </button>
-           <button class="btn-register">
-          <a href="./login-register/register.html">register</a>
+        
+        <button class="btn-register">
+            <a class="text-decoration-none" href="./login-register/register.html">register</a>
         </button>
-         <div class="menu-icon">
-        <i data-lucide="menu"></i>
-      </div>
-      </div>
-      <!-- <div class="product-cover">
-        <h3>ហាងលក់ សម្លៀកបំពាក់ ហ្វាហ្វា</h3>
-
-        <div class="product-cover-image">
-          <img
-            src="https://d3jmn01ri1fzgl.cloudfront.net/photoadking/webp_thumbnail/shark-new-collection-sale-clothing-banner-template-p3ztild89dffd0.webp"
-            alt=""
-          />
+        
+        <div class="menu-icon">
+            <i data-lucide="menu"></i>
         </div>
-      </div> -->
     </div>
+      </div>
 
-     <div class="product-container">
+    </div>
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.cato.org/sites/cato.org/files/styles/aside_3x/public/2023-11/fast-fashion2.jpeg?itok=72ek8bxI" alt="Los Angeles" width="1100" height="200">
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.freepik.com/premium-photo/fashion-concept-woman-choosing-clothes-rack-boutique-store-shopping-center_34048-990.jpg" alt="Chicago" width="1100" height="200">
+    </div>
+    <div class="carousel-item">
+      <img src="https://cdn.shopify.com/s/files/1/1244/6386/files/Fashion_Forward_Revamp_Your_Wardrobe_with_Boutique_Clothing_Finds_1.jpg?v=1697466358" alt="New York" width="1100" height="200">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+     <div class="product-container mt-0">
       <div class="product-card">
-        <a href="./product-detail/detail.html" class="product-image">
+        <a href="./product-detail/detail.html" class="product-image text-decoration-none">
           <img
             src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
             alt="Product image"
@@ -70,7 +97,7 @@
           <p class="price"><strike>$100.99</strike></p>
           <p class="title">Backpack</p>
           <button class="add-to-card">
-            <i data-lucide="shopping-cart" class="icon-card"></i>Add to cart
+            <i data-lucide="shopping-cart" class="icon-card" ></i>Add to cart
           </button>
           <span>30% off</span>
         </a>
@@ -78,7 +105,7 @@
         
       </div>
       <div class="product-card">
-        <a href="./product-detail/detail.html" class="product-image">
+        <a href="./product-detail/detail.html" class="product-image text-decoration-none">
           <img
             src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
             alt="Product image"
@@ -94,7 +121,7 @@
         
       </div>
       <div class="product-card">
-        <a href="./product-detail/detail.html" class="product-image">
+        <a href="./product-detail/detail.html" class="product-image text-decoration-none">
           <img
             src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png"
             alt="Product image"
@@ -110,7 +137,7 @@
         
       </div>
        <div class="product-card">
-        <a href="./product-detail/detail.html" class="product-image">
+        <a href="./product-detail/detail.html" class="product-image text-decoration-none">
           <img
             src="https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png"
             alt="Product image"
@@ -126,7 +153,7 @@
         
       </div>
  <div class="product-card">
-        <a href="./product-detail/detail.html" class="product-image">
+        <a href="./product-detail/detail.html" class="product-image text-decoration-none">
           <img
             src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_t.png"
             alt="Product image"
@@ -142,7 +169,7 @@
         
       </div>
  <div class="product-card">
-        <a href="./product-detail/detail.html" class="product-image">
+        <a href="./product-detail/detail.html" class="product-image text-decoration-none">
           <img
             src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png"
             alt="Product image"
@@ -174,15 +201,15 @@
         <div class="footer-columns">
           <div class="footer-column">
             <h4>Products</h4>
-            <a href="">Shirt</a>
-            <a href="">Shoes</a>
-            <a href="">Dress</a>
+            <a href="" class="text-decoration-none">Shirt</a>
+            <a href="" class="text-decoration-none">Shoes</a>
+            <a href="" class="text-decoration-none">Dress</a>
           </div>
           <div class="footer-column">
             <h4>Legal</h4>
-            <a href="">Privacy</a>
-            <a href="">Term & Condition</a>
-            <a href="">Shpping</a>
+            <a href="" class="text-decoration-none">Privacy</a>
+            <a href="" class="text-decoration-none">Term & Condition</a>
+            <a href="" class="text-decoration-none">Shpping</a>
           </div>
           <div class="footer-column">
             <h4>Contact</h4>
@@ -200,7 +227,7 @@
                 src="https://img.icons8.com/?size=48&id=P7UIlhbpWzZm&format=png"
                 alt="gmail"
               />
-              <a href="mailto:seyhaemdev@gmail.com">seyhaemdev@gmail.com</a>
+              <a href="mailto:seyhaemdev@gmail.com" class="text-decoration-none">seyhaemdev@gmail.com</a>
             </div>
             <!-- phone -->
             <div class="contact-item">
@@ -208,7 +235,7 @@
                 src="https://img.icons8.com/?size=48&id=12921&format=png"
                 alt="gmail"
               />
-              <a href="tel:+85512345678">+855 12 345 678</a>
+              <a href="tel:+85512345678" class="text-decoration-none">+855 12 345 678</a>
             </div>
             <!-- social media -->
  <div class="footer-style">
@@ -247,11 +274,11 @@
       </footer>
          <!-- nav-bottom -->
           <nav class="nav-bottom">
-      <a href="" class="nav-item-bottom active">
+      <a href="" class="nav-item-bottom text-decoration-none">
         <i data-lucide="house"></i>
         Home
       </a>
-      <a href="" class="nav-item-bottom">
+      <a href="" class="nav-item-bottom active text-decoration-none">
         <i data-lucide="shopping-cart"></i>
         Product
       </a>
@@ -259,7 +286,7 @@
         <i data-lucide="circle-user-round"></i>
         Contact
       </a>
-      <a href="" class="nav-item-bottom">
+      <a href="" class="nav-item-bottom text-decoration-none">
         <i data-lucide="info"></i>
         About
       </a>
