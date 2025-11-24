@@ -1,9 +1,10 @@
+/* --- Global Resets & Body --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* --- BASE STYLES --- */
+
 body {
   margin: 0;
   padding: 0;
@@ -11,36 +12,24 @@ body {
   font-family: "Time New Roman", Tahoma, Geneva, Verdana, sans-serif;
   padding-top: 80px;
 }
+
+/* --- Header & Navbar --- */
 .header.fixed-top {
-  z-index: 1030; /* Higher than Bootstrap's default z-index for fixed elements (1020) */
+  z-index: 1030;
   width: 100%;
-  background-color: white; /* Ensure the background is solid so content doesn't show through */
+  background-color: white;
 }
-/* .header{
-        position: fixed;
-        width: 100%;
-        z-index: 100;
-        top: 0;
-        left: 0;
-        right: 0;
-      } */
 .navbar {
   background-color: #1a1a3a;
   min-height: 60px;
   padding: 0 30px;
   font-family: "Time New Roman", Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 10;
+  /* border-radius: 10; <--- Removed invalid value */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
   width: 100%;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  right: 0;
-  /* margin-top: 30px; */
 }
 
 .navbar-list {
@@ -51,7 +40,7 @@ body {
 }
 
 .nav-item {
-  text-decoration: none;
+  text-decoration: none; /* Keeps default state without underline */
   padding: 20px 18px;
   color: #f0f0f0;
   display: block;
@@ -64,6 +53,7 @@ body {
 
 .nav-item:hover {
   color: #ff6347;
+  /* FIX: Removed text-decoration: none !important; to avoid conflict with ::after */
 }
 
 .nav-item::after {
@@ -92,13 +82,10 @@ body {
 .logo:hover {
   transform: scale(1.05);
 }
-.carousel-inner img {
-  width: 100%;
-  height: 300px;
-}
+
+/* --- Buttons --- */
 .btn-log {
   padding: 10px 20px;
-  /* margin-left: 260px; */
   background-color: #27ae60;
   border: none;
   border-radius: 10px;
@@ -107,13 +94,13 @@ body {
   cursor: pointer;
   text-decoration: none !important;
 }
+
 .me-2 {
   margin-right: 0.1rem !important;
 }
 .btn-register {
   padding: 10px 20px;
-  /* margin-right: 150px; */
-  background-color: #27ae60;
+  background-color: #27ae60; /* Using same color as log for now, you might want to change it */
   border: none;
   border-radius: 10px;
   transition: background-color 0.3s ease, transform 0.1s ease;
@@ -136,22 +123,19 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: white;
+  text-decoration: none;
 }
-
-/* .btn-log:hover a,
-.btn-register:hover a {
-  color: white;
-
-} */
 
 .btn-log:active,
 .btn-register:active {
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* --- Marquee --- */
 marquee {
   background-color: rgb(255, 255, 255);
-  color: black; /* Adjusted for visibility */
+  color: black;
   padding: 10px 0;
   font-family: khmer os system, sans-serif;
   position: fixed;
@@ -167,18 +151,17 @@ marquee p {
   font-weight: bold;
   z-index: 10;
 }
+
+/* --- Product Cover/Banner --- */
 .product-cover {
   background-color: rgb(177, 127, 10);
   width: 100%;
   height: 25vh;
   min-height: 150px;
-  /* Set position relative for absolute children reference */
   position: relative;
-  /* Flexbox centers the text/content */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Ensure no text content wraps to next line to keep alignment */
   overflow: hidden;
   position: fixed;
   z-index: 500;
@@ -187,23 +170,20 @@ marquee p {
   right: 0;
 }
 
-/* New container for the image */
 .product-cover-image {
-  /* FIX 2: Place the image behind the text and stretch it */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Place behind the text (which will be z-index 2) */
+  z-index: 1;
 }
 
-/* FIX 1: Make the image itself responsive and cover the container */
 .product-cover-image img {
   width: 100%;
   height: 100%;
-  object-fit: fill; /* Crucial: Ensures the image covers the area without stretching */
-  display: block; /* Removes any default spacing issues */
+  object-fit: fill;
+  display: block;
 }
 .product-cover h3 {
   font-family: khmer os system, sans-serif;
@@ -217,7 +197,8 @@ marquee p {
   position: relative;
   z-index: 2;
 }
-/* container of product card for each product */
+
+/* --- Product Grid & Cards --- */
 .product-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -227,13 +208,6 @@ marquee p {
   top: 0;
   left: 0;
 }
-/* .shirt-container{
-        display: grid;
-        grid-template-columns: 1fr 1fr ;
-        width: 40%;
-        margin: auto;
-        gap: 20px;
-      } */
 .product-image {
   position: relative;
 }
@@ -257,6 +231,7 @@ marquee p {
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
 }
 
 .product-card:hover {
@@ -267,9 +242,7 @@ marquee p {
 .product-card img {
   width: 100%;
   height: 300px;
-  /* --- KEY CHANGE HERE --- */
-  object-fit: contain; /* This prevents cropping and ensures the whole image is visible */
-  /* --- ------------- --- */
+  object-fit: contain;
   border-radius: 8px;
   transition: transform 0.5s ease;
   display: block;
@@ -281,12 +254,15 @@ marquee p {
 .product-card a {
   text-decoration: none;
 }
-.price {
-  color: #e94e77;
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 5px;
-  margin-top: 15px;
+.price-discount {
+  position: absolute;
+  z-index: 999;
+  top: 35px;
+  right: 5px;
+  transform-origin: top right;
+  transform: rotate(50deg);
+  white-space: nowrap;
+  display: block;
 }
 
 .title {
@@ -347,7 +323,8 @@ p {
   font-family: khmer os system, sans-serif;
   font-size: 30px;
 }
-/* footer layout */
+
+/* --- Social Media & Footer --- */
 .social-media {
   display: flex;
   justify-content: center;
@@ -377,7 +354,7 @@ p {
   display: flex;
   justify-content: space-between;
   background-color: #1a1a3a;
-  border-radius: 10;
+  /* border-radius: 10; <--- Removed invalid value */
   border-radius: 10px;
   padding: 10px 50px;
   align-items: start;
@@ -458,15 +435,11 @@ p {
   filter: brightness(0) invert(1);
 }
 
-/* detail layout */
+/* --- Product Detail Page --- */
 .product-detail-container {
   width: 100%;
-  /* max-width: 1200px; */
-  /* margin: 10px auto; */
-  /* padding: 0px; */
   background-color: #f4f4f9;
   border-radius: 12px;
-  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
   margin-top: -80px;
 }
 
@@ -474,7 +447,6 @@ p {
   display: grid;
   grid-template-columns: 60% 40%;
   gap: 40px;
-  /* align-items: flex-start; */
 }
 
 .product-gallery {
@@ -482,7 +454,6 @@ p {
   grid-template-columns: 100px 1fr;
   gap: 10px;
   border-radius: 10px;
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
 }
 
 .product-gallery img {
@@ -502,8 +473,8 @@ p {
   max-height: 450px;
   overflow-y: auto;
   direction: rtl;
-  scrollbar-width: none; /* Hides the scrollbar */
-  scrollbar-color: transparent transparent; /* Optional: Makes the thumb and track transparent */
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
 }
 .thumbnail img {
   width: 80px;
@@ -561,7 +532,6 @@ p {
 
 .product-price {
   color: #e74c3c;
-  /* Soft Red/Coral for emphasis */
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 25px;
@@ -571,11 +541,9 @@ p {
 
 .product-desc {
   color: #555;
-  /* Darker text for readability */
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 35px;
-  padding: 30px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
   padding: 0px 30px;
@@ -599,7 +567,6 @@ p {
 
 .quantity input {
   width: 80px;
-  /* Slightly wider input */
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -611,12 +578,10 @@ p {
 
 .quantity input:focus {
   border-color: #3498db;
-  /* Focus color */
 }
 .quantity button {
   padding: 5px 10px;
   background-color: #3498db;
-  /* Primary Action Color */
   color: white;
   border: none;
   border-radius: 8px;
@@ -654,40 +619,34 @@ p {
   transform: translateY(-2px);
 }
 
-/* login-register */
-/* New Gradient Background */
+/* --- Login/Register Forms --- */
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* Radial gradient for a modern, soft background */
   background-color: rgb(255, 255, 255);
-  padding: 1.5rem; /* Increased padding */
+  padding: 1.5rem;
 }
 
 .container {
   background-color: white;
   padding: 3rem 2.5rem;
-  border-radius: 20px; /* Slightly larger radius */
+  border-radius: 20px;
   text-align: center;
-
   width: 100%;
-  max-width: 400px; /* Slightly wider card for better balance */
-
-  /* Enhanced, layered shadow for a professional lift effect */
+  max-width: 400px;
   box-shadow: 0 15px 35px rgba(14, 33, 72, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Avatar image style refined */
 .container img.avatar {
-  padding: 10px; /* Slightly more padding */
-  width: 110px; /* Slightly larger icon */
+  padding: 10px;
+  width: 110px;
   height: 110px;
   background-color: #f0f4f8;
   border-radius: 50%;
   margin-bottom: 1.75rem;
-  border: 3px solid #e0f2f1; /* Light teal border */
+  border: 3px solid #e0f2f1;
 }
 
 .container h3 {
@@ -698,14 +657,14 @@ p {
 }
 
 .container p {
-  font-size: 0.95rem; /* Slightly larger text */
+  font-size: 0.95rem;
   color: #6b7280;
-  margin-bottom: 2.5rem; /* Increased spacing */
+  margin-bottom: 2.5rem;
 }
 
 .input-group {
   text-align: left;
-  margin-bottom: 1.5rem; /* More spacing */
+  margin-bottom: 1.5rem;
 }
 .input-group label {
   display: block;
@@ -718,16 +677,15 @@ p {
 
 .input-group input {
   width: 100%;
-  padding: 1rem 2rem; /* Generous vertical padding */
-  border-radius: 10px; /* More rounded corners */
-  border: 1px solid #226e3f; /* Very light border */
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: 1px solid #226e3f;
   background-color: #f9fafb;
   font-size: 0.9rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input-group input:focus {
-  /* Use a modern, vibrant teal for focus */
   border-color: #226e3f;
   box-shadow: 0 0 0 5px rgba(101, 195, 69, 0.2);
   outline: none;
@@ -742,7 +700,7 @@ p {
   padding: 1rem 1.7rem;
 }
 .two-column-container > div {
-  flex: 1; /* Makes each column take 50% width */
+  flex: 1;
 }
 
 .forgot {
@@ -752,7 +710,7 @@ p {
 
 .forgot a {
   text-decoration: none;
-  color: #00bcd4; /* Vibrant teal accent color */
+  color: #00bcd4;
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -768,33 +726,30 @@ p {
   justify-content: center;
   gap: 0.75rem;
   text-decoration: none;
-  padding: 1rem 1rem; /* More padding */
+  padding: 1rem 1rem;
   width: 100%;
-
-  /* Dynamic Button: Gradient background */
   background: linear-gradient(90deg, #45cb81, #1c3972);
   color: white;
   font-weight: 600;
   font-size: 1.05rem;
   border: none;
   border-radius: 10px;
-  margin-top: 25px; /* Increased margin */
+  margin-top: 25px;
   cursor: pointer;
-
-  box-shadow: 0 4px 15px rgba(14, 33, 72, 0.4); /* Button shadow */
+  box-shadow: 0 4px 15px rgba(14, 33, 72, 0.4);
   transition: all 0.25s ease;
 }
 
 .btn-login:hover {
   background: linear-gradient(90deg, #287e06, #0e2148);
-  transform: translateY(-2px); /* More noticeable lift */
+  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(25, 7, 157, 0.5);
 }
 
 .btn-login img {
-  width: 28px; /* Slightly larger button icon */
+  width: 28px;
   height: 28px;
-  filter: invert(1); /* Ensure icon is visible on dark background */
+  filter: invert(1);
 }
 
 .register {
@@ -805,14 +760,15 @@ p {
 
 .register a {
   text-decoration: none;
-  color: #00bcd4; /* Vibrant teal accent color */
+  color: #00bcd4;
   font-weight: 700;
 }
 
 .register a:hover {
   text-decoration: underline;
 }
-/* nav-bottom */
+
+/* --- Mobile Nav Bar (Bottom) --- */
 .nav-bottom {
   position: fixed;
   bottom: 0;
@@ -838,7 +794,51 @@ p {
 .active {
   color: rgb(241, 9, 40);
 }
-/* laptop */
+
+/* --- Utility/Reusable Classes --- */
+.card-img-fixed-height {
+  height: 18rem;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  background-color: #ffffff;
+}
+.rounded-10 {
+  border-radius: 10px !important;
+}
+.image-zoom-container {
+  overflow: hidden;
+  display: block;
+}
+
+.image-zoom-effect {
+  transition: transform 0.5s ease;
+  object-position: center;
+  transform: scale(1);
+}
+
+.image-zoom-container:hover .image-zoom-effect {
+  transform: scale(1.1);
+}
+
+/* --- COLLAPSE MENU FIXES FOR MOBILE/TABLET (All screens below 992px) --- */
+/* This block ensures the collapsed menu takes full width and stacks items vertically */
+.navbar-collapse.show {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0;
+  background-color: #1a1a3a;
+}
+.navbar-collapse.show .navbar-list {
+  display: flex !important;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 0;
+}
+
+/* laptop (Max 1200px) */
 @media (max-width: 1200px) {
   .product-container {
     display: grid;
@@ -850,6 +850,7 @@ p {
   .product-card {
     font-size: 14px;
     padding: 10px 10px;
+    position: relative;
   }
   .product-detail {
     display: grid;
@@ -859,8 +860,12 @@ p {
   .nav-bottom {
     display: none;
   }
+  /* #customNavbarContent.show {
+        display: none !important;
+    } */
 }
-/* tablet */
+
+/* tablet (Screens below 992px) */
 @media (max-width: 992px) {
   .carousel-inner img {
     width: 100%;
@@ -875,40 +880,63 @@ p {
     margin-left: 5px;
   }
 
+  /* CRITICAL FIX: Ensure the desktop Login/Register buttons/forms are hidden immediately */
+  .d-lg-flex {
+    display: none !important;
+  }
+
+  /* Hiding desktop buttons/forms that are not inside the collapse container on small screens */
   .btn {
-    padding: 7px 7px;
-    margin-right: 15px;
-    font-size: 10px;
-    font-family: "Times New Roman", Times, serif;
+    display: none;
+  }
+  .btn-log {
+    display: none;
+  }
+  .btn-register {
     display: none;
   }
   .navbar {
-    background-color: #333;
+    background-color: #1a1a3a;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
   }
   .nav-item {
+    text-decoration: none;
     color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 8px 10px;
     font-size: 12px;
     font-family: "Times New Roman", Times, serif;
+    width: 100%; /* Full width when collapsed */
   }
+
   .navbar-list {
-    display: flex;
-    list-style: none;
+    text-decoration: none;
     width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; <--- Removed: should stack vertically when collapsed */
     margin-top: 10px;
-    display: none;
+  }
+  .navbar-list .nav-item a {
+    text-decoration: none !important; /* Force no text decoration on the link itself */
+    color: inherit; /* Inherit the color from the parent li.nav-item */
+    padding: 0; /* Remove padding here, it's on the LI */
+  }
+
+  /* You also need to make sure the link color changes on hover */
+  .navbar-list .nav-item:hover a {
+    color: #ff6347;
   }
   .menu-icon {
-    display: flex;
+    display: flex !important;
     color: white;
   }
   .nav-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
     display: flex;
   }
   .footer {
@@ -925,6 +953,7 @@ p {
   .product-card {
     font-size: 14px;
     padding: 8px 10px;
+    position: relative;
   }
   .product-detail {
     display: grid;
@@ -932,36 +961,65 @@ p {
     gap: 30px;
   }
   .product-detail-container {
-    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
     margin-top: -50px;
   }
+
+  /* --- Mobile Menu Authentication Links Styling --- */
+  .mobile-auth-link {
+    margin-top: 10px;
+    padding: 5px 10px;
+    width: 100%;
+  }
+
+  .mobile-auth-link .login-mobile,
+  .mobile-auth-link .register-mobile {
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 600;
+    margin: 5px 0;
+    /* Removed text-decoration: none !important; here too, 
+           rely on specific color/background not text-decoration */
+  }
+
+  .mobile-auth-link .login-mobile:hover,
+  .mobile-auth-link .register-mobile:hover {
+    text-decoration: underline; /* Add underline on hover for mobile auth links */
+  }
+
+  .mobile-auth-link .login-mobile {
+    background-color: #27ae60;
+  }
+
+  .mobile-auth-link .register-mobile {
+    background-color: #3498db;
+  }
+
+  .mobile-auth-link .nav-item::after {
+    content: none !important;
+  }
+  #customNavbarContent:not(.show) .form-inline.d-lg-none,
+  #customNavbarContent:not(.show) .d-lg-none.d-flex {
+    display: none !important;
+  }
+  /* --- END Mobile Auth Styles --- */
 }
-/* mobile */
+/* mobile (Screens below 768px) */
 @media (max-width: 768px) {
+  body {
+    padding-top: 50px;
+  }
   .carousel-inner img {
     width: 100%;
     height: 200px;
-  }
-  body {
-    padding-top: 50px;
   }
   .logo {
     width: 30px;
     height: 30px;
     margin-left: 10px;
-  }
-  .btn-log {
-    padding: 7px 7px;
-    margin-right: 25px;
-    font-size: 10px;
-    font-family: "Times New Roman", Times, serif;
-    display: inline-block;
-  }
-  .navbar .btn-log {
-    display: none !important;
-  }
-  .btn-register {
-    display: none;
   }
   .navbar {
     padding-right: 20px;
@@ -973,21 +1031,46 @@ p {
   }
   .navbar-list {
     width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; <--- Removed: should stack vertically when collapsed */
     margin-top: 10px;
-    display: none;
   }
   .menu-icon {
     display: flex;
   }
+
+  /* CRITICAL FIX: Redundancy check for d-lg-flex */
+  .d-lg-flex {
+    display: none !important;
+  }
+
+  .btn-log {
+    display: none;
+  }
+  .btn-register {
+    display: none;
+  }
+  .btn-log,
+  .btn-register {
+    /* Ensure they maintain their natural width: */
+    display: inline-block; /* (or just let the browser/Flexbox handle it) */
+    width: auto;
+  }
+  .price-discount {
+    top: 23px;
+    right: 0px;
+    transform: rotate(45deg);
+    white-space: nowrap;
+  }
+  .card-img-fixed-height {
+    height: 14rem;
+  }
   .nav-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
     display: flex;
   }
-  /* .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-    width: 70%;
-    margin: auto;
-  } */
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -998,15 +1081,12 @@ p {
   .product-card {
     font-size: 14px;
     padding: 4px 10px;
+    position: relative;
   }
   .add-to-card {
     font-size: 10px;
   }
 
-  /* .back {
-    margin-left: 10px;
-    cursor: pointer;
-  } */
   .product-detail {
     grid-template-columns: 1fr;
   }
@@ -1046,13 +1126,11 @@ p {
   }
 
   .product-price {
-    /* Soft Red/Coral for emphasis */
     font-size: 15px;
     padding: 0px 2px;
   }
 
   .product-desc {
-    /* Darker text for readability */
     font-size: 10px;
     line-height: 1.2;
     padding-bottom: 5px;
@@ -1071,13 +1149,11 @@ p {
 
   .quantity input {
     width: 50px;
-    /* Slightly wider input */
     padding: 5px 5px;
     font-size: 8px;
   }
   .quantity button {
     padding: 1px 2px;
-    /* Primary Action Color */
     font-size: 1px;
   }
   .icon {
@@ -1130,7 +1206,6 @@ p {
     font-size: 9px;
     text-transform: uppercase;
     margin-bottom: 12px;
-    /* letter-spacing: 1px; */
   }
 
   .footer-column a {
@@ -1166,14 +1241,12 @@ p {
     height: 20px;
   }
 
-  /* login-register */
-  .container {
-    padding: 1.5rem 1rem;
-  }
-
   .product-detail-container {
-    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
     margin-top: -50px;
+  }
+  #customNavbarContent:not(.show) .form-inline.d-lg-none,
+  #customNavbarContent:not(.show) .d-lg-none.d-flex {
+    display: none !important;
   }
 }
 /* --- VERY SMALL SCREENS (Phones <480px) --- */
@@ -1186,16 +1259,11 @@ p {
     height: 30px;
     margin-left: 10px;
   }
-  .btn-log {
-    padding: 7px 7px;
-    margin-right: 25px;
-    font-size: 10px;
-    font-family: "Times New Roman", Times, serif;
-    display: inline-block;
-  }
+
   .navbar .btn-log {
-    display: none !important;
+    display: none;
   }
+
   .navbar {
     padding-right: 20px;
   }
@@ -1208,15 +1276,17 @@ p {
     width: 100%;
     justify-content: space-between;
     margin-top: 10px;
-    display: none;
   }
   .menu-icon {
-    margin-left: auto; /* pushes it to the far right */
+    margin-left: auto;
     display: flex;
     align-items: center;
   }
   .nav-bottom {
-    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
   }
   .product-cover {
     padding-right: 20px;
@@ -1231,6 +1301,9 @@ p {
   .add-to-card {
     font-size: 10px;
   }
+  .card-img-fixed-height {
+    height: 14rem;
+  }
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1241,13 +1314,10 @@ p {
   .product-card {
     font-size: 14px;
     padding: 4px 10px;
+    position: relative;
   }
 
   .product-detail-container {
-    width: 100%;
-    /* max-width: 480px;
-    margin: 40px auto;
-    padding: 20px; */
   }
 
   .product-detail {
@@ -1288,13 +1358,11 @@ p {
   }
 
   .product-price {
-    /* Soft Red/Coral for emphasis */
     font-size: 15px;
     padding: 0px 2px;
   }
 
   .product-desc {
-    /* Darker text for readability */
     font-size: 10px;
     line-height: 1.2;
     padding-bottom: 5px;
@@ -1313,13 +1381,11 @@ p {
 
   .quantity input {
     width: 50px;
-    /* Slightly wider input */
     padding: 5px 5px;
     font-size: 8px;
   }
   .quantity button {
     padding: 1px 2px;
-    /* Primary Action Color */
     font-size: 1px;
   }
   .icon {
@@ -1381,7 +1447,6 @@ p {
     font-size: 9px;
     text-transform: uppercase;
     margin-bottom: 12px;
-    /* letter-spacing: 1px; */
   }
 
   .footer-column a {
@@ -1398,7 +1463,6 @@ p {
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 4px;
   }
   .contact-item span {
     color: #ffffff;
@@ -1420,7 +1484,6 @@ p {
     height: 20px;
   }
 
-  /* login-register */
   .container {
     padding: 1rem 1rem;
   }
