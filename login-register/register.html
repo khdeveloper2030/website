@@ -3,60 +3,171 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Registration Form</title>
+    <title>Premium Registration Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../assets/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script> 
+    <style>
+      /* --- CUSTOM STYLES FOR PREMIUM MINIMALIST DESIGN --- */
+
+:root {
+    --primary-color: #00bcd4; /* Cyan/Teal */
+    --primary-color-dark: #0097a7; /* Darker Cyan/Teal */
+    --bg-color: #f0f2f5; /* Light background for the body */
+}
+
+/* General Body Styling */
+body {
+    background-color: var(--bg-color); 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Card Styling (using .register-card instead of .login-card for specificity) */
+.register-card {
+    /* Based on the HTML: bg-white, p-5, rounded-4, shadow-lg, position-relative */
+    padding: 60px; 
+    border-radius: 1rem; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #dee2e6; 
+}
+
+/* Avatar Styling */
+.avatar {
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 2px solid var(--primary-color);
+    margin: 0 auto;
+}
+
+/* Input Field Styling */
+.form-control-lg {
+    border-radius: 0.75rem;
+    padding: 0.8rem 1.25rem;
+    border-color: #ced4da;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-control-lg:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 188, 212, 0.25);
+}
+
+/* Custom Primary Button (The "Register" button) */
+.btn-bold-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border-radius: 0.75rem;
+}
+.btn-bold-primary:hover {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 188, 212, 0.3);
+}
+
+/* Custom Link Color */
+.link-bold-primary {
+    color: var(--primary-color) !important;
+}
+.link-bold-primary:hover {
+    color: var(--primary-color-dark) !important;
+}
+
+/* Media Query to reduce card padding on very small mobile screens */
+@media (max-width: 400px) {
+    .register-card {
+        padding: 30px; 
+    }
+}
+    </style>
   </head>
-  <body class="login">
-    <div class="container">
-      <div>
-        <img
-          class="avatar"
-          src="https://img.icons8.com/?size=48&id=23309&format=png"
-          alt="avatar"
-        />
-        <h3 class="test-color">Register</h3>
-        <p>Enter your information detail</p>
-      </div>
+  <body class="d-flex justify-content-center align-items-center min-vh-100 bg-secondary-subtle">
+    <div class="main-register-wrapper" style=" width: 100%; padding: 20px;">
+        
+        <div class="register-card bg-white p-5 rounded-4 shadow-lg position-relative">
+            
+            <a
+                href="../index.html"
+                class="text-decoration-none d-flex align-items-center fw-semibold text-muted"
+                style="position: absolute; top: 20px; left: 25px;"
+            >
+                <i data-lucide="arrow-left" class="me-2" style="width: 18px; height: 18px;"></i>
+                Back
+            </a>
 
-      <div class="input-group">
-        <div class="two-column-container">
-          <div>
-            <label for="username">First Name</label>
-            <input type="text" id="firstname" placeholder="Enter first name" />
-          </div>
-          <div>
-            <label for="username">Last Name</label>
-            <input type="text" id="lastname" placeholder="Enter last name" />
-          </div>
+            <div class="text-center mb-4">
+                <img
+                    class="avatar mb-3"
+                    src="https://img.icons8.com/?size=48&id=23309&format=png"
+                    alt="avatar"
+                />
+                <h1 class="fw-bolder text-dark">Register</h1>
+                <p class="text-secondary small">Enter your information details</p>
+            </div>
+            
+            <form>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label for="firstname" class="form-label fw-semibold mb-1">First Name</label>
+                        <input type="text" id="firstname" class="form-control form-control-lg" placeholder="Enter first name" required/>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastname" class="form-label fw-semibold mb-1">Last Name</label>
+                        <input type="text" id="lastname" class="form-control form-control-lg" placeholder="Enter last name" required/>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="username" class="form-label fw-semibold mb-1">Username</label>
+                    <input type="text" id="username" class="form-control form-control-lg" placeholder="Enter your username" required/>
+                </div>
+
+                <div class="mb-4">
+                    <label for="email" class="form-label fw-semibold mb-1">Email Address</label>
+                    <input type="email" id="email" class="form-control form-control-lg" placeholder="Enter your email address" required/>
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="form-label fw-semibold mb-1">Password</label>
+                    <input type="password" id="password" class="form-control form-control-lg" placeholder="Enter password" required/>
+                </div>
+
+                <button type="submit" class="btn btn-bold-primary w-100 btn-lg d-flex align-items-center justify-content-center fw-bold mt-4">
+                    <i data-lucide="user-plus" class="me-2" style="width: 20px; height: 20px;"></i>
+                    Register
+                </button>
+            </form>
+
+            <div class="text-center mt-4 pt-3 border-top">
+                <p class="text-muted mb-0 small">
+                    Already have an account? 
+                    <a href="login.html" class="fw-bolder text-decoration-none link-bold-primary">Login Here</a>
+                </p>
+            </div>
         </div>
-      </div>
-
-      <div class="input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username" />
-      </div>
-
-      <div class="input-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="Enter your email address" />
-      </div>
-
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter password" />
-      </div>
-
-      <button class="btn-login">
-        <img
-          src="https://img.icons8.com/?size=50&id=10738&format=png"
-          alt="Register Icon"
-        />
-        Register
-      </button>
-
-      <div class="register">
-        Already have an account? <a href="login.html">Login Here</a>
-      </div>
     </div>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
   </body>
 </html>

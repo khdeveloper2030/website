@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/style.css" />
+    <title>Premium Product Detail - Sleek Design</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,347 +11,618 @@
       crossorigin="anonymous"
     />
     <style>
-      .sticky-col {
-        position: sticky;
-        top: 20px;
-      }
-      .thumb-img {
-        height: 60px;
-        margin-bottom: 10px;
-        width: 100%;
-      }
-      .main-img {
-        width: 100%;
-        height: 400px;
-      }
+     :root {
+  --bs-primary: #00798c;
+  --bs-primary-rgb: 0, 121, 140;
+  --bs-danger: #e76f51;
+  --bs-danger-rgb: 231, 111, 81;
+  
+  --checkout-primary: #00798c; 
+  --checkout-primary-dark: #006373;
+  --checkout-primary-rgb: 0, 121, 140;
+}
+
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .sticky-col {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+  }
+}
+
+.main-img {
+  width: 100%;
+  height: 400px;
+  object-fit: contain;
+  border-radius: 0.75rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  padding: 15px;
+}
+
+.product-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--bs-primary);
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 991.98px) {
+  .main-img {
+    height: 300px;
+  }
+  .product-price {
+    font-size: 1.8rem;
+  }
+  .mobile-thumbnail-strip {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.thumb-img {
+  height: 70px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #e9ecef;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.thumb-img:hover, .thumb-img.active {
+  border-color: var(--bs-primary);
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.card-img-fixed-height {
+  height: 250px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  object-fit: contain !important;
+}
+
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container:hover .image-zoom-effect {
+  transform: scale(1.05);
+}
+
+.related-card, .hover-zoom-shadow {
+  border-radius: 0.75rem;
+  border: none;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.hover-zoom-shadow:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.related-products-row {
+  --bs-gutter-y: 1.5rem;
+}
+
+.text-checkout-primary {
+    color: var(--checkout-primary) !important;
+}
+
+.btn-checkout-primary {
+    background-color: var(--checkout-primary);
+    border-color: var(--checkout-primary);
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-checkout-primary:hover {
+    background-color: var(--checkout-primary-dark);
+    border-color: var(--checkout-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(var(--checkout-primary-rgb), 0.4);
+}
+
+.modal-shadow-lg {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.form-control-lg, .form-select-lg {
+    padding: 0.75rem 1.25rem; 
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-control-lg:focus, .form-select-lg:focus {
+    border-color: var(--checkout-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--checkout-primary-rgb), 0.25);
+}
+
+.form-check-lg .form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.3em;
+    border-color: #ced4da;
+}
+.form-check-lg .form-check-input:checked {
+    background-color: var(--checkout-primary);
+    border-color: var(--checkout-primary);
+}
+      
     </style>
   </head>
   <body>
-    <!-- <div class="product-detail-container">
-      <a href="../index.html">
-        <i data-lucide="move-left" class="back"></i>
-      </a>
-
-      <div class="product-detail">
+    <div class="container-xl product-detail-container py-4 py-lg-5 bg-light min-vh-100">
+      <div>
         
-        <div class="product-gallery">
-          <div class="thumbnail">
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-              alt=""
-            />
-            <img
-              src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
-              alt=""
-            />
-            <img
-              src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
-              alt=""
-            />
-            <img
-              src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
-              alt=""
-            />
-            <img
-              src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
-              alt=""
-            />
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-              alt=""
-            />
-          </div>
-         
-          <div class="main-product">
-            <img
-              src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
-              alt=""
-            />
-          </div>
-        </div>
+        <a href="../index.html" class="text-decoration-none d-flex align-items-center mb-4 text-secondary fw-semibold">
+          <i data-lucide="move-left" class="me-2" style="width: 20px; height: 20px;"></i>
+          Back 
+        </a>
 
-       
-        <div class="product-info">
-          <h2>Product Titles</h2>
-          <p class="product-price">$22.3</p>
-          <p class="product-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            temporibus harum quae, suscipit ut dolorem eum. Incidunt eius quia
-            sed animi nulla, architecto maiores nostrum voluptate, ad distinctio
-            magnam excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            temporibus harum quae, suscipit ut dolorem eum. Incidunt eius quia
-            sed animi nulla, architecto maiores nostrum voluptate, ad distinctio
-            magnam Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus necessitatibus porro est voluptatibus quasi
-               culpa earum fuga optio, repellat molestiae et explicabo ipsam soluta recusandae quae debitis labore quisquam vitae maiores 
-               quidem nostrum a sequi. Molestias velit quia, laudantium ipsum, dolor debitis beatae repellat et porro alias quam quis necessitatibus quod 
-               eius soluta, facere ea! Nobis alias ducimus voluptates repellat quae fugit totam quidem, sed, similique, est quibusdam aperiam nisi. 
-               Quod reiciendis aperiam reprehenderit repudiandae ipsum minima fuga quo aspernatur eligendi repellat asperiores eum, 
-              assumenda aut illo necessitatibus non ducimus commodi quaerat velit error recusandae deleniti explicabo. Quasi, a? Nisi!
-          </p>
-          <div class="quantity">
-            <label for="">Quantity</label>
-            <div>
-              <button><i data-lucide="minus" class="icon"></i></button>
-              <input type="text" />
-              <button><i data-lucide="plus" class="icon"></i></button>
+        <div class="row product-detail bg-white p-4 p-lg-5 rounded-4 shadow-lg">
+          
+          <div class="col-12 col-lg-7 order-1 order-lg-2">
+            <h1 class="fw-bolder mb-2 text-dark">Premium Cotton T-Shirt</h1>
+            <p class="text-muted mb-3 fs-6">Item Code: **#98432-M-GRN**</p>
+            
+            <div class="d-flex align-items-baseline gap-3 mb-4 border-bottom pb-3">
+                <span class="product-price">$22.30</span>
+                <span class="badge bg-success-subtle text-success fw-bold py-2 px-3">IN STOCK (150 units)</span>
             </div>
-          </div>
-          <div class="action-btn">
-            <button>Add to card</button>
-            <button>Buy now</button>
-          </div>
-        </div>
-      </div>
 
-      <div class="related">
-        <h3>Related Product</h3>
-        <div class="related-grid">
-          <div class="related-card">
-            <img
-              src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
-              alt=""
-            />
-            <p>Product 1</p>
-            <p class="product-price">$10.99</p>
-          </div>
-          <div class="related-card">
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-              alt=""
-            />
-            <p>Product 2</p>
-            <p class="product-price">$10.99</p>
-          </div>
-          <div class="related-card">
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-              alt=""
-            />
-            <p>Product 3</p>
-            <p class="product-price">$10.99</p>
-          </div>
-          <div class="related-card">
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-              alt=""
-            />
-            <p class="product-title">Product 1</p>
-            <p class="product-price">$10.99</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="product-detail-container py-5">
-      <a href="../index.html">
-        <i
-          data-lucide="move-left"
-          class="back d-flex justify-content-start mb-3"
-        ></i>
-      </a>
-
-      <div class="row">
-        <!-- thumnail -->
-        <div class="col-md-1">
-          <div class="sticky-col">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s"
-              class="thumb-img"
-            />
-            <img
-              src="https://st.depositphotos.com/1643295/3583/i/450/depositphotos_35837089-stock-photo-photo-of-you.jpg"
-              class="thumb-img"
-              alt=""
-            />
-            <img
-              src="https://www.shutterstock.com/image-photo/asian-tourist-using-camera-blurry-260nw-726823537.jpg"
-              class="thumb-img"
-              alt=""
-            />
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s"
-              class="thumb-img"
-              alt=""
-            />
-          </div>
-        </div>
-        <!-- Main Product -->
-        <div class="col-md-4">
-          <div class="sticky-col">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s"
-              class="main-img"
-              alt=""
-            />
-          </div>
-        </div>
-        <!-- product info -->
-        <div class="col-md-6">
-          <h2>T-Shirt</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-            doloribus dolorem et nobis nisi animi amet? Minus, facilis et sint
-            nesciunt corporis veniam culpa officiis mollitia, magni inventore,
-            maiores aliquid.Lorem ipsum dolor, sit amet consectetur adipisicing
-            elit. Eius blanditiis atque libero, excepturi magnam iste eum
-            placeat culpa in laboriosam doloribus? At tempora iste nihil
-            voluptatum veniam voluptatibus quod fuga.Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Dignissimos sapiente blanditiis,
-            delectus eveniet numquam itaque provident hic accusantium,
-            consectetur nam facilis officia nesciunt iste ex unde eaque ducimus.
-            Molestiae, quasi. ipsum dolor sit amet consectetur adipisicing elit.
-            Atque rem voluptatem blanditiis tenetur dolor? Distinctio repellat
-            facilis voluptatum quae deserunt adipisci. Fugit id iste aspernatur
-            eius labore ratione, nostrum mollitia. ipsum dolor sit amet
-            consectetur adipisicing elit. Dolore repellat totam, expedita quia
-            minima harum quis? Eos, alias repellendus inventore, voluptatem
-            provident voluptas, laboriosam harum quasi totam cum accusantium
-            incidunt!Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Dicta doloribus dolorem et nobis nisi animi amet? Minus, facilis et
-            sint nesciunt corporis veniam culpa officiis mollitia, magni
-            inventore, maiores aliquid.Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Eius blanditiis atque libero, excepturi magnam
-            iste eum placeat culpa in laboriosam doloribus? At tempora iste
-            nihil voluptatum veniam voluptatibus quod fuga.Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Dignissimos sapiente blanditiis,
-            delectus eveniet numquam itaque provident hic accusantium,
-            consectetur nam facilis officia nesciunt iste ex unde eaque ducimus.
-            Molestiae, quasi. ipsum dolor sit amet consectetur adipisicing elit.
-            Atque rem voluptatem blanditiis tenetur dolor? Distinctio repellat
-            facilis voluptatum quae deserunt adipisci. Fugit id iste aspernatur
-            eius labore ratione, nostrum mollitia. ipsum dolor sit amet
-            consectetur adipisicing elit. Dolore repellat totam, expedita quia
-            minima harum quis? Eos, alias repellendus inventore, voluptatem
-            provident voluptas, laboriosam harum quasi totam cum accusantium
-            incidunt!
-          </p>
-          <!-- Button trigger modal -->
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#checkoutModal"
-          >
-            Check Out
-          </button>
-        </div>
-      </div>
-        <div class="related">
-        <h3>Related Product</h3>
-        <div class="related-grid">
-          <div class="related-card">
-            <img
-              src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
-              alt=""
-            />
-            <p>Product 1</p>
-            <p class="product-price">$10.99</p>
-          </div>
-          <div class="related-card">
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-              alt=""
-            />
-            <p>Product 2</p>
-            <p class="product-price">$10.99</p>
-          </div>
-          <div class="related-card">
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-              alt=""
-            />
-            <p>Product 3</p>
-            <p class="product-price">$10.99</p>
-          </div>
-          <div class="related-card">
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-              alt=""
-            />
-            <p class="product-title">Product 1</p>
-            <p class="product-price">$10.99</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- modal -->
-    <div
-      class="modal fade"
-      id="checkoutModal"
-      tabindex="-1"
-      aria-labelledby="checkoutModal"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address</label
+            <div class="d-flex flex-column flex-lg-row gap-3 mb-4">
+                <button
+                    type="button"
+                    class="btn btn-primary btn-lg flex-grow-1 text-white"
+                    data-bs-toggle="modal"
+                    data-bs-target="#checkoutModal"
                 >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-              </div>
-              <select
-                class="form-select form-select-lg mb-3"
-                aria-label="Large select example"
-              >
-                <option selected>Choose Payment</option>
-                <option value="1">ABA</option>
-                <option value="2">Wing</option>
-                <option value="3">Aclida</option>
-              </select>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radioDefault"
-                  id="radioDefault1"
-                />
-                <label class="form-check-label" for="radioDefault1">
-                  Delivery
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radioDefault"
-                  id="radioDefault2"
-                  checked
-                />
-                <label class="form-check-label" for="radioDefault2">
-                  Pick up
-                </label>
-              </div>
-            </form>
+                    <i data-lucide="shopping-cart" class="me-2" style="width: 20px; height: 20px;"></i>
+                    **Buy Now**
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-outline-primary btn-lg flex-grow-1"
+                >
+                    <i data-lucide="heart" class="me-2" style="width: 20px; height: 20px;"></i>
+                    Add to Wishlist
+                </button>
+            </div>
+            
+            <h3 class="h5 mt-4 mb-2 fw-bold text-dark">Product Description</h3>
+            <p class="text-secondary small border-start border-3 border-primary ps-3">
+              This T-Shirt offers **maximum comfort and durability**, crafted from premium, high-quality organic cotton. Dignissimos sapiente blanditiis, delectus eveniet numquam
+              itaque provident hic accusantium, consectetur nam facilis officia
+              nesciunt iste ex unde eaque ducimus. Molestiae, quasi.
+            </p>
+            
+            <h3 class="h5 mt-4 mb-2 fw-bold text-dark">Details & Care</h3>
+            <ul class="list-group list-group-flush small">
+                <li class="list-group-item">Material: **100% Organic Cotton**</li>
+                <li class="list-group-item">Fit: **Modern Slim Fit**</li>
+                <li class="list-group-item">Care: Machine wash cold, tumble dry low</li>
+            </ul>
+
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          
+          <div class="col-12 col-lg-5 order-2 order-lg-1">
+            <div class="row g-2">
+                
+                <div class="col-lg-3 d-none d-lg-block">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s"
+                        class="thumb-img active"
+                        alt="Product Thumbnail 1"
+                    />
+                    <img
+                        src="https://st.depositphotos.com/1643295/3583/i/450/depositphotos_35837089-stock-photo-photo-of-you.jpg"
+                        class="thumb-img"
+                        alt="Product Thumbnail 2"
+                    />
+                    <img
+                        src="https://www.shutterstock.com/image-photo/asian-tourist-using-camera-blurry-260nw-726823537.jpg"
+                        class="thumb-img"
+                        alt="Product Thumbnail 3"
+                    />
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s"
+                        class="thumb-img"
+                        alt="Product Thumbnail 4"
+                    />
+                </div>
+
+                <div class="col-12 col-lg-9">
+                    <div class="sticky-col mb-4 mb-lg-0">
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s"
+                            class="main-img img-fluid"
+                            alt="Main Product Image"
+                        />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-block d-lg-none mobile-thumbnail-strip mt-3 py-2 border-top">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s"
+                    class="thumb-img active"
+                    style="width: 80px; height: 80px; display: inline-block; margin-right: 10px;"
+                    alt="Thumbnail 1"
+                />
+                <img
+                    src="https://st.depositphotos.com/1643295/3583/i/450/depositphotos_35837089-stock-photo-photo-of-you.jpg"
+                    class="thumb-img"
+                    style="width: 80px; height: 80px; display: inline-block; margin-right: 10px;"
+                    alt="Thumbnail 2"
+                />
+                <img
+                    src="https://www.shutterstock.com/image-photo/asian-tourist-using-camera-blurry-260nw-726823537.jpg"
+                    class="thumb-img"
+                    style="width: 80px; height: 80px; display: inline-block; margin-right: 10px;"
+                    alt="Thumbnail 3"
+                />
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s"
+                    class="thumb-img"
+                    style="width: 80px; height: 80px; display: inline-block; margin-right: 10px;"
+                    alt="Thumbnail 4"
+                />
+            </div>
+            
+          </div>
+          
+        </div>
+
+        <hr class="my-5">
+        
+        <div class="related">
+          <h3 class="mb-4 fw-bold text-dark">📦 More from Our Collection</h3>
+          <div class="row related-products-row">
+            
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 d-flex">
+                <div
+                    class="card shadow-sm border-0 rounded-3 w-100 hover-zoom-shadow"
+                >
+                    <span
+                        class="badge text-bg-primary position-absolute top-0 start-0 m-2 p-2 rounded-pill z-3"
+                    >
+                        Bestseller
+                    </span>
+                    <div
+                        class="product-image-link image-zoom-container overflow-hidden"
+                    >
+                        <img
+                            src="https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png"
+                            class="card-img-top card-img-fixed-height object-fit-contain p-3 image-zoom-effect"
+                            alt="Stainless Steel Bracelet"
+                        />
+                    </div>
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5
+                            class="card-title fw-bold text-truncate"
+                            title="Stainless Steel Bracelet"
+                        >
+                            Stainless Steel Bracelet
+                        </h5>
+                        <div
+                            class="d-flex justify-content-center align-items-baseline mb-2"
+                        >
+                            <p class="text-success fw-bold fs-5 me-2 mb-0">$695.00</p>
+                        </div>
+                        <div class="d-grid gap-1 d-md-flex justify-content-center mt-auto">
+                            <a
+                                href="detail.html"
+                                class="btn btn-outline-info btn-sm text-decoration-none"
+                                >Details</a
+                            >
+                            <a href="#" class="btn btn-primary btn-sm"
+                                ><i
+                                    data-lucide="shopping-cart"
+                                    class="icon-card"
+                                    style="height: 18px"
+                                ></i>
+                                Buy Now</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 d-flex">
+              <div
+                    class="card shadow-sm border-0 rounded-3 w-100 hover-zoom-shadow"
+                >
+                    <div
+                        class="product-image-link image-zoom-container overflow-hidden"
+                    >
+                        <img
+                            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
+                            class="card-img-top card-img-fixed-height object-fit-contain p-3 image-zoom-effect"
+                            alt="Fabulous Laptop"
+                        />
+                    </div>
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5
+                            class="card-title fw-bold text-truncate"
+                            title="Fabulous Laptop"
+                        >
+                            Fabulous Laptop
+                        </h5>
+                        <div
+                            class="d-flex justify-content-center align-items-baseline mb-2"
+                        >
+                        
+                            <p class="text-success fw-bold fs-5 me-2 mb-0">$879.20</p>
+                        </div>
+                        <div class="d-grid gap-1 d-md-flex justify-content-center mt-auto">
+                            <a
+                               href="detail.html"
+                                class="btn btn-outline-info btn-sm text-decoration-none"
+                                >Details</a
+                            >
+                            <a href="#" class="btn btn-primary btn-sm"
+                                ><i
+                                    data-lucide="shopping-cart"
+                                    class="icon-card"
+                                    style="height: 18px"
+                                ></i>
+                                Buy Now</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 d-flex">
+              <div
+                    class="card shadow-sm border-0 rounded-3 w-100 hover-zoom-shadow"
+                >
+                    <span
+                        class="badge text-bg-primary position-absolute top-0 start-0 m-2 p-2 rounded-pill z-3"
+                    >
+                        New Arrival
+                    </span>
+                    <div
+                        class="product-image-link image-zoom-container overflow-hidden"
+                    >
+                        <img
+                              src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_t.png"
+                            class="card-img-top card-img-fixed-height object-fit-contain p-3 image-zoom-effect"
+                            alt="Silver Chain"
+                        />
+                    </div>
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5
+                            class="card-title fw-bold text-truncate"
+                            title="Silver Chain"
+                        >
+                            Silver Chain
+                        </h5>
+                        <div
+                            class="d-flex justify-content-center align-items-baseline mb-2"
+                        >
+                            <p class="text-success fw-bold fs-5 me-2 mb-0">$25.50</p>
+                        </div>
+                        <div class="d-grid gap-1 d-md-flex justify-content-center mt-auto">
+                            <a
+                               href="detail.html"
+                                class="btn btn-outline-info btn-sm text-decoration-none"
+                                >Details</a
+                            >
+                            <a href="#" class="btn btn-primary btn-sm"
+                                ><i
+                                    data-lucide="shopping-cart"
+                                    class="icon-card"
+                                    style="height: 18px"
+                                ></i>
+                                Buy Now</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 d-flex">
+              <div
+                    class="card shadow-sm border-0 rounded-3 w-100 hover-zoom-shadow"
+                >
+                    <div
+                        class="product-image-link image-zoom-container overflow-hidden"
+                    >
+                        <img
+                              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
+                            class="card-img-top card-img-fixed-height object-fit-contain p-3 image-zoom-effect"
+                            alt="Men's Casual Shirt"
+                        />
+                    </div>
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5
+                            class="card-title fw-bold text-truncate"
+                            title="Men's Casual Shirt"
+                        >
+                            Men's Casual Shirt
+                        </h5>
+                        <div
+                            class="d-flex justify-content-center align-items-baseline mb-2"
+                        >
+                            <p class="text-success fw-bold fs-5 me-2 mb-0">$15.99</p>
+                        </div>
+                        <div class="d-grid gap-1 d-md-flex justify-content-center mt-auto">
+                            <a
+                               href="detail.html"
+                                class="btn btn-outline-info btn-sm text-decoration-none"
+                                >Details</a
+                            >
+                            <a href="#" class="btn btn-primary btn-sm"
+                                ><i
+                                    data-lucide="shopping-cart"
+                                    class="icon-card"
+                                    style="height: 18px"
+                                ></i>
+                                Buy Now</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
           </div>
         </div>
       </div>
     </div>
+    
+  <div
+    class="modal fade"
+    id="checkoutModal"
+    tabindex="-1"
+    aria-labelledby="checkoutModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-shadow-lg rounded-4">
+            
+            <div class="modal-header bg-white border-0 pb-0 pt-4 px-4">
+                <h1 class="modal-title fs-4 fw-bolder text-dark" id="checkoutModalLabel">
+                    <i
+                        data-lucide="shopping-bag"
+                        class="me-2 text-checkout-primary"
+                        style="width: 24px; height: 24px"
+                    ></i>
+                    **Complete Your Secure Order**
+                </h1>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            
+            <div class="modal-body p-4 p-md-5">
+                <div class="row g-4">
+                    
+                    <div class="col-lg-7 order-lg-1 border-end pe-lg-4">
+                        
+                        <h4 class="mb-4 text-checkout-primary fw-bold border-bottom pb-2">Complete Your Information</h4>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="inputName" class="form-label fw-semibold small">Full Name</label>
+                                    <input type="text" class="form-control form-control-lg rounded-3" id="inputName" placeholder="Your full name" required/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputEmail" class="form-label fw-semibold small">Email address</label>
+                                    <input type="email" class="form-control form-control-lg rounded-3" id="inputEmail" placeholder="Enter your email" required/>
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputPhone" class="form-label fw-semibold small">Phone Number</label>
+                                    <input type="tel" class="form-control form-control-lg rounded-3" id="inputPhone" placeholder="(+855) XX XX XX XX" required/>
+                                </div>
+                            </div>
+
+                            <h4 class="mb-4 mt-5 text-checkout-primary fw-bold border-bottom pb-2">Payment & Delivery</h4>
+                            
+                            <div class="mb-4">
+                                <label for="paymentSelect" class="form-label fw-semibold small">Select Payment Method</label>
+                                <select
+                                    class="form-select form-select-lg rounded-3"
+                                    id="paymentSelect"
+                                    aria-label="Payment selection"
+                                >
+                                    <option selected>Select Payment Method...</option>
+                                    <option value="1">ABA (Bank Transfer)</option>
+                                    <option value="2">Wing (Mobile Payment)</option>
+                                    <option value="3">Acleda (Bank Transfer)</option>
+                                    <option value="4">Cash on Delivery (COD)</option>
+                                </select>
+                            </div>
+                            
+                            <h5 class="mb-3 fw-bold small text-dark">Delivery Options</h5>
+                            <div class="d-flex gap-4">
+                                <div class="form-check form-check-lg">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="deliveryRadio"
+                                        id="radioDelivery"
+                                    />
+                                    <label class="form-check-label fw-semibold" for="radioDelivery">
+                                        Delivery (+$5.00)
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-lg">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="deliveryRadio"
+                                        id="radioPickup"
+                                        checked
+                                    />
+                                    <label class="form-check-label fw-semibold" for="radioPickup">
+                                        Pick up (Free)
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="col-lg-5 order-lg-2">
+                        <div class="bg-light p-4 rounded-3 h-100">
+                            <h4 class="mb-3 text-dark fw-bold border-bottom pb-2">Order Summary</h4>
+                            
+                            <div class="d-flex justify-content-between mb-2 small">
+                                <span class="text-muted">Premium T-Shirt (x1)</span>
+                                <span class="fw-bold text-dark">$22.30</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2 small">
+                                <span class="text-muted">Estimated Shipping</span>
+                                <span class="fw-bold text-success">FREE</span>
+                            </div>
+                            
+                            <div class="border-top pt-3 mt-4">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h4 class="fw-bolder mb-0">Total Due (USD)</h4>
+                                    <h3 class="fw-bolder mb-0 text-checkout-primary">$22.30</h3>
+                                </div>
+                            </div>
+                            
+                            <p class="small text-muted mt-3 mb-0">
+                                By placing this order, you agree to the Terms and Conditions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer justify-content-center border-top p-4 ">
+                <!-- <button
+                    type="button"
+                    class="btn btn-outline-secondary rounded-pill px-4 fw-semibold"
+                    data-bs-dismiss="modal"
+                >
+                    Cancel
+                </button> -->
+                <button type="submit" class="btn btn-checkout-primary btn-lg rounded-pill px-5 fw-bold">
+                    <i
+                        data-lucide="credit-card"
+                        class="me-2"
+                        style="width: 20px; height: 20px"
+                    ></i>
+                    **Pay and Order**
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -361,6 +631,23 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
+      
+      // OPTIONAL: Basic JavaScript to switch the main image when a thumbnail is clicked
+      document.addEventListener('DOMContentLoaded', () => {
+          const mainImage = document.querySelector('.main-img');
+          const thumbnails = document.querySelectorAll('.thumb-img');
+
+          thumbnails.forEach(thumb => {
+              thumb.addEventListener('click', () => {
+                  // Change main image source
+                  mainImage.src = thumb.src;
+
+                  // Update active state
+                  thumbnails.forEach(t => t.classList.remove('active'));
+                  thumb.classList.add('active');
+              });
+          });
+      });
     </script>
   </body>
 </html>
